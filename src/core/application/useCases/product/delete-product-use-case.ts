@@ -1,11 +1,11 @@
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
 
 type DeleteProductUseCaseResponse = null
 
 export class DeleteProductUseCase {
   constructor(
-    private productGateway: ProductGateway,
+    private productGateway: IProductGateway,
     private findProductByIdUseCase: FindProductByIdUseCase,
   ) {}
 

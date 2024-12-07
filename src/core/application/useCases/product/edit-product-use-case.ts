@@ -1,7 +1,7 @@
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { EditProductUseCaseRequest } from '@core/application/dtos/edit-product-use-case-request'
 
 type EditProductUseCaseResponse = {
@@ -10,7 +10,7 @@ type EditProductUseCaseResponse = {
 
 export class EditProductUseCase {
   constructor(
-    private productGateway: ProductGateway,
+    private productGateway: IProductGateway,
     private findProductByIdUseCase: FindProductByIdUseCase,
   ) {}
 

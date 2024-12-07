@@ -1,13 +1,13 @@
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 
 type FindAllProductsUseCaseResponse = {
   products: Product[]
 }
 
 export class FindAllProductsUseCase {
-  constructor(private productGateway: ProductGateway) {}
+  constructor(private productGateway: IProductGateway) {}
 
   async execute(query: {
     category?: string

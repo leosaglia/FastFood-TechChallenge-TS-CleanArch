@@ -1,12 +1,12 @@
 import { describe, it, expect, vi } from 'vitest'
 import { DeleteProductUseCase } from './delete-product-use-case'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { ProductNotFoundError } from '@core/enterprise/custom-exceptions/product-not-found'
 
 describe('DeleteProductUseCase', () => {
   let sut: DeleteProductUseCase
-  let mockProductGateway: ProductGateway
+  let mockProductGateway: IProductGateway
 
   beforeEach(() => {
     mockProductGateway = {

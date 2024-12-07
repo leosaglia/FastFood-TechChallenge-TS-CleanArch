@@ -1,5 +1,5 @@
 import { Product } from '@core/enterprise/entities/product'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { ProductNotFoundError } from '@core/enterprise/custom-exceptions/product-not-found'
 
 type FindProductByIdUseCaseResponse = {
@@ -7,7 +7,7 @@ type FindProductByIdUseCaseResponse = {
 }
 
 export class FindProductByIdUseCase {
-  constructor(private productGateway: ProductGateway) {}
+  constructor(private productGateway: IProductGateway) {}
 
   async execute(productId: string): Promise<FindProductByIdUseCaseResponse> {
     const product = await this.productGateway.findById(productId)

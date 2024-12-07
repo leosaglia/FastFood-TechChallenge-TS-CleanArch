@@ -3,14 +3,14 @@ import { Decimal } from 'decimal.js'
 import { Product } from '@core/enterprise/entities/product'
 import { CreateProductUseCase } from './create-product-use-case'
 import { CreateProductUseCaseRequest } from '@core/application/dtos/create-product-use-case-request'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { InvalidProductError } from '@core/enterprise/custom-exceptions/invalid-product'
 import { InvalidCategoryError } from '@core/enterprise/custom-exceptions/invalid-category'
 import { makeCreateProductRequest } from '@test/factories/product-factory'
 
 describe('CreateProductUseCase', () => {
   let sut: CreateProductUseCase
-  let mockProductGateway: ProductGateway
+  let mockProductGateway: IProductGateway
 
   beforeEach(() => {
     mockProductGateway = {

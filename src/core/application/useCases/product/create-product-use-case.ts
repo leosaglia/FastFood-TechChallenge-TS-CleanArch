@@ -2,7 +2,7 @@ import { Decimal } from 'decimal.js'
 
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { CreateProductUseCaseRequest } from '@core/application/dtos/create-product-use-case-request'
 
 type CreateProductUseCaseResponse = {
@@ -10,7 +10,7 @@ type CreateProductUseCaseResponse = {
 }
 
 export class CreateProductUseCase {
-  constructor(private productGateway: ProductGateway) {}
+  constructor(private productGateway: IProductGateway) {}
 
   async execute({
     name,

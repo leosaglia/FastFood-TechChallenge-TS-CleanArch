@@ -3,12 +3,12 @@ import { describe, it, expect, vi } from 'vitest'
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
 import { FindAllProductsUseCase } from './find-all-products-use-case'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { InvalidCategoryError } from '@core/enterprise/custom-exceptions/invalid-category'
 
 describe('FindAllProductsUseCase', () => {
   let sut: FindAllProductsUseCase
-  let mockProductGateway: ProductGateway
+  let mockProductGateway: IProductGateway
 
   beforeEach(() => {
     mockProductGateway = {

@@ -3,7 +3,7 @@ import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
 import { EditProductUseCase } from './edit-product-use-case'
-import { ProductGateway } from '@core/application/interfaces/gateway/product-gateway'
+import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { EditProductUseCaseRequest } from '@core/application/dtos/edit-product-use-case-request'
 import { ProductNotFoundError } from '@core/enterprise/custom-exceptions/product-not-found'
 import {
@@ -13,7 +13,7 @@ import {
 
 describe('EditProductUseCase', () => {
   let sut: EditProductUseCase
-  let mockProductGateway: ProductGateway
+  let mockProductGateway: IProductGateway
 
   beforeEach(() => {
     mockProductGateway = {
