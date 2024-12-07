@@ -1,0 +1,21 @@
+{
+  "name": "fastfood-techchallenge-ts-cleanarch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "eslint": "^8.57.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.1.3"
+  }
+}
