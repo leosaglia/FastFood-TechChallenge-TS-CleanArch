@@ -3,7 +3,7 @@ import { Decimal } from 'decimal.js'
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
 import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
-import { CreateProductUseCaseRequest } from '@core/application/dtos/create-product-use-case-request'
+import { CreateProductDto } from '@core/application/dtos/create-product-dto'
 
 type CreateProductUseCaseResponse = {
   product: Product
@@ -17,7 +17,7 @@ export class CreateProductUseCase {
     price,
     description,
     category,
-  }: CreateProductUseCaseRequest): Promise<CreateProductUseCaseResponse> {
+  }: CreateProductDto): Promise<CreateProductUseCaseResponse> {
     const product = new Product(
       name,
       new Decimal(price),

@@ -4,7 +4,7 @@ import { Category } from '@core/enterprise/valueObjects/category'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
 import { EditProductUseCase } from './edit-product-use-case'
 import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
-import { EditProductUseCaseRequest } from '@core/application/dtos/edit-product-use-case-request'
+import { EditProductDto } from '@core/application/dtos/edit-product-dto'
 import { ProductNotFoundError } from '@core/enterprise/custom-exceptions/product-not-found'
 import {
   makeEditProductRequest,
@@ -36,7 +36,7 @@ describe('EditProductUseCase', () => {
       mockFindProductByIdUseCase as unknown as FindProductByIdUseCase,
     )
 
-    const request: EditProductUseCaseRequest = makeEditProductRequest()
+    const request: EditProductDto = makeEditProductRequest()
 
     const result = await sut.execute(request)
 
@@ -64,7 +64,7 @@ describe('EditProductUseCase', () => {
       mockFindProductByIdUseCase as unknown as FindProductByIdUseCase,
     )
 
-    const request: EditProductUseCaseRequest = makeEditProductRequest()
+    const request: EditProductDto = makeEditProductRequest()
 
     await expect(useCase.execute(request)).rejects.toThrow(
       expect.objectContaining({

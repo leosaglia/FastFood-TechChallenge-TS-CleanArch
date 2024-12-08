@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { Decimal } from 'decimal.js'
 import { Product } from '@core/enterprise/entities/product'
 import { CreateProductUseCase } from './create-product-use-case'
-import { CreateProductUseCaseRequest } from '@core/application/dtos/create-product-use-case-request'
+import { CreateProductDto } from '@core/application/dtos/create-product-dto'
 import { IProductGateway } from '@core/application/interfaces/gateway/product-gateway-interface'
 import { InvalidProductError } from '@core/enterprise/custom-exceptions/invalid-product'
 import { InvalidCategoryError } from '@core/enterprise/custom-exceptions/invalid-category'
@@ -24,7 +24,7 @@ describe('CreateProductUseCase', () => {
   })
 
   it('should create a product successfully', async () => {
-    const product: CreateProductUseCaseRequest = makeCreateProductRequest()
+    const product: CreateProductDto = makeCreateProductRequest()
 
     const response = await sut.execute(product)
 
