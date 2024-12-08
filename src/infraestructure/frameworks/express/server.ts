@@ -1,6 +1,7 @@
 import express from 'express'
 import routes from './routes'
 import { IProductDataSource } from '@core/application/interfaces/repository/product-data-source'
+import globalErrorHandler from './global-error-handling'
 
 export class TechChallengeAPI {
   static start(dataSource: IProductDataSource) {
@@ -13,6 +14,7 @@ export class TechChallengeAPI {
     })
 
     app.use(routes)
+    app.use(globalErrorHandler)
 
     app.listen(3333, () => {
       console.log('Server started ⚡')

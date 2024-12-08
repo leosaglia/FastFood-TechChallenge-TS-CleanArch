@@ -6,16 +6,16 @@ import { ProductMapper } from './mappers/product-mapper'
 export class ProductGateway implements IProductGateway {
   constructor(private readonly dataSouce: IProductDataSource) {}
 
-  create(product: Product): Promise<void> {
-    throw new Error('Method not implemented.')
+  async create(product: Product): Promise<void> {
+    await this.dataSouce.create(ProductMapper.toCreateProductDto(product))
   }
 
-  edit(product: Product): Promise<void> {
-    throw new Error('Method not implemented.')
+  async edit(product: Product): Promise<void> {
+    await this.dataSouce.edit(ProductMapper.toEditProductDto(product))
   }
 
-  delete(id: string): Promise<void> {
-    throw new Error('Method not implemented.')
+  async delete(id: string): Promise<void> {
+    await this.dataSouce.delete(id)
   }
 
   async findById(id: string): Promise<Product | null> {

@@ -1,6 +1,4 @@
 import { ProductDto } from '@core/application/dtos/product-dto'
-import { CreateProductDto } from '@core/application/dtos/create-product-dto'
-import { EditProductDto } from '@core/application/dtos/edit-product-dto'
 import { Prisma, Product as PrismaProduct } from '@prisma/client'
 
 export class PrismaProductMapper {
@@ -14,10 +12,11 @@ export class PrismaProductMapper {
     }
   }
 
-  static toPersistenceCreate(
-    product: CreateProductDto,
+  static toPersistence(
+    product: ProductDto,
   ): Prisma.ProductUncheckedCreateInput {
     return {
+      id: product.id,
       name: product.name,
       description: product.description,
       price: product.price,
@@ -25,9 +24,7 @@ export class PrismaProductMapper {
     }
   }
 
-  static toPersistenceUpdate(
-    product: EditProductDto,
-  ): Prisma.ProductUpdateInput {
+  static toPersistenceUpdate(product: ProductDto): Prisma.ProductUpdateInput {
     return {
       name: product.name,
       description: product.description,

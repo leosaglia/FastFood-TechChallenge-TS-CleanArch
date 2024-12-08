@@ -1,6 +1,4 @@
 import { ProductDto } from '@core/application/dtos/product-dto'
-import { EditProductDto } from '@core/application/dtos/edit-product-dto'
-import { CreateProductDto } from '@core/application/dtos/create-product-dto'
 import { PrismaService } from '@infra/frameworks/prisma/prisma.service'
 import { IProductDataSource } from '@core/application/interfaces/repository/product-data-source'
 import { PrismaProductMapper } from './mappers/prisma-product-mapper'
@@ -8,15 +6,14 @@ import { PrismaProductMapper } from './mappers/prisma-product-mapper'
 export class PrismaProductRepository implements IProductDataSource {
   constructor(private prisma: PrismaService) {}
 
-  async create(product: CreateProductDto): Promise<void> {
-    const data = PrismaProductMapper.toPersistenceCreate(product)
-
+  async create(product: ProductDto): Promise<void> {
+    const data = PrismaProductMapper.toPersistence(product)
     await this.prisma.product.create({
       data,
     })
   }
 
-  async edit(product: EditProductDto): Promise<void> {
+  async edit(product: ProductDto): Promise<void> {
     const data = PrismaProductMapper.toPersistenceUpdate(product)
 
     await this.prisma.product.update({

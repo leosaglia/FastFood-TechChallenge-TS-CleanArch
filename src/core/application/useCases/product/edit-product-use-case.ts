@@ -1,3 +1,4 @@
+import Decimal from 'decimal.js'
 import { Product } from '@core/enterprise/entities/product'
 import { Category } from '@core/enterprise/valueObjects/category'
 import { FindProductByIdUseCase } from './find-product-by-id-use-case'
@@ -25,7 +26,7 @@ export class EditProductUseCase {
 
     const product = new Product(
       name,
-      price,
+      new Decimal(price),
       description,
       new Category(category),
       id,

@@ -1,0 +1,87 @@
+@baseUrl = http://localhost:3333
+
+# @name criar_produto
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Batata frita",
+  "description": "Batata frita simples com sal",
+  "category": "Acompanhamento",
+  "price": 5.99
+}
+
+###
+
+# @name editar_produto
+PUT {{baseUrl}}/products/cm4g0uxr70000wbuktjvw2qmc
+Content-Type: application/json
+
+{
+  "name": "Burguer Bacon",
+  "description": "Contém 2 hamburgueres com queijo e bacon",
+  "category": "Lanche",
+  "price": 24.50
+}
+
+###
+
+# @name listar_produtos
+GET {{baseUrl}}/products
+
+###
+
+# @name listar_produtos_por_categoria
+GET {{baseUrl}}/products?category=lanche
+Content-Type: application/json
+
+###
+
+# @name deletar_produto
+DELETE {{baseUrl}}/products/cm4g0uxr70000wbuktjvw2qmc
+
+###
+
+# Customer
+
+# @name criar_cliente
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "document": "111.444.777-35"
+}
+
+###
+
+# @name obter_cliente_por_cpf
+GET {{baseUrl}}/customers/11144477735
+
+###
+
+# Pedidos
+
+# @name criar_pedido
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "customerId": "a7db0e72-0611-4c9e-88a6-edb977fada4f",
+  "items": [
+    {
+      "productId": "3c375341-8191-4f5f-8867-9e81224b372b",
+      "quantity": 2
+    },
+    {
+      "productId": "1a442d43-fad4-47ad-91ce-485346ad5a05",
+      "quantity": 2
+    }
+  ]
+}
+
+###
+
+# @name listar_pedidos
+GET {{baseUrl}}/orders
