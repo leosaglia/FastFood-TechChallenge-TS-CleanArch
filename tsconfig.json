@@ -3,6 +3,7 @@
     "baseUrl": "./",
     "paths": {
       "@core/*": ["src/core/*"],
+      "@infra/*": ["src/infraestructure/*"],
       "@test/*": ["test/*"],
     },
     "types": [
