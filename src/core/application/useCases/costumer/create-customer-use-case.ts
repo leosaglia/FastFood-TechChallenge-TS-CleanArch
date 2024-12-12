@@ -1,7 +1,7 @@
 import { Customer } from '@core/enterprise/entities/customer'
 import { Document } from '@core/enterprise/valueObjects/document'
 import { CreateCustomerDto } from '@core/application/dtos/create-customer-dto'
-import { CustomerGateway } from '@infra/gateway/costumer-gateway'
+import { CustomerGateway } from '@infra/gateway/customer-gateway'
 import { CustomerAlreadyExistsError } from '@core/enterprise/custom-exceptions/customer-already-exists'
 
 type CreateCustomerUseCaseResponse = {

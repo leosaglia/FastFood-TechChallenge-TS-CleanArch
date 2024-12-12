@@ -1,6 +1,6 @@
-export interface CreateCustomerDto {
+export interface CustomerDto {
   document: string
   name: string
   email: string
-  id?: string
+  id: string
 }

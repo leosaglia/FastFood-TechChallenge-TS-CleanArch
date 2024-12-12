@@ -1,6 +1,6 @@
 import { Customer } from '@core/enterprise/entities/customer'
 import { Document } from '@core/enterprise/valueObjects/document'
-import { CustomerGateway } from '@infra/gateway/costumer-gateway'
+import { CustomerGateway } from '@infra/gateway/customer-gateway'
 import { CustomerNotFoundError } from '@core/enterprise/custom-exceptions/customer-not-found'
 
 type IdentifyCustomerByDocumentUseCaseResponse = {
