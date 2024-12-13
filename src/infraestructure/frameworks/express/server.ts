@@ -13,7 +13,7 @@ export class TechChallengeAPI {
     app.use(express.json())
 
     app.use((req, res, next) => {
-      req.app.locals.dataSource = productDataSource
+      req.app.locals.productDataSource = productDataSource
       req.app.locals.customerDataSource = customerDataSource
       next()
     })

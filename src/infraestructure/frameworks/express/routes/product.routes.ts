@@ -13,7 +13,7 @@ productRouter.post(
   '/',
   async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const dataSource: IProductDataSource = request.app.locals.dataSource
+      const dataSource: IProductDataSource = request.app.locals.productDataSource
       const productController = new ProductController(dataSource)
 
       const { name, description, price, category } = request.body
@@ -40,7 +40,7 @@ productRouter.get(
     next: NextFunction,
   ) => {
     try {
-      const dataSource: IProductDataSource = request.app.locals.dataSource
+      const dataSource: IProductDataSource = request.app.locals.productDataSource
       const productController = new ProductController(dataSource)
 
       const { category } = request.query
@@ -58,7 +58,7 @@ productRouter.put(
   '/:id',
   async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const dataSource: IProductDataSource = request.app.locals.dataSource
+      const dataSource: IProductDataSource = request.app.locals.productDataSource
       const productController = new ProductController(dataSource)
 
       const { id } = request.params
@@ -83,7 +83,7 @@ productRouter.delete(
   '/:id',
   async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const dataSource: IProductDataSource = request.app.locals.dataSource
+      const dataSource: IProductDataSource = request.app.locals.productDataSource
       const productController = new ProductController(dataSource)
 
       const { id } = request.params
