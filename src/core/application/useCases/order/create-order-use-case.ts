@@ -26,7 +26,10 @@ export class CreateOrderUseCase {
     const order = new Order()
     const products: Product[] = []
 
-    if (items.length === 0) {
+    if (
+      items.length === 0 ||
+      !items.every((item) => item.productId && item.quantity)
+    ) {
       throw new InvalidOrderError('You must pass products to create an order')
     }
 
