@@ -1,7 +1,7 @@
 import { Order } from '@core/enterprise/entities/order'
 import { Product } from '@core/enterprise/entities/product'
 import { OrderItem } from '@core/enterprise/entities/orderItem'
-import { CreateOrderDto } from '@core/application/dtos/create-order-dto'
+import { CreateOrderUseCaseDto } from '@core/application/dtos/create-order-use-case-dto'
 import { IOrderGateway } from '@core/application/interfaces/gateway/order-gateway-interface'
 import { FindProductByIdUseCase } from '@core/application/useCases/product/find-product-by-id-use-case'
 import { IdentifyCustomerByDocumentUseCase } from '@core/application/useCases/costumer/identify-customer-by-document-use-case'
@@ -22,7 +22,7 @@ export class CreateOrderUseCase {
   async execute({
     items,
     customerDocument,
-  }: CreateOrderDto): Promise<CreateOrderUseCaseResponse> {
+  }: CreateOrderUseCaseDto): Promise<CreateOrderUseCaseResponse> {
     const order = new Order()
     const products: Product[] = []
 

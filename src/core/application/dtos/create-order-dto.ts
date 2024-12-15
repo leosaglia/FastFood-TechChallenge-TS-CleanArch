@@ -1,7 +1,8 @@
+import { OrderItemDto } from './order-dto'
+
 export interface CreateOrderDto {
-  items: Array<{
-    productId: string
-    quantity: number
-  }>
-  customerDocument?: string
+  id: string
+  status: string
+  items: OrderItemDto[]
+  customerId?: string
 }

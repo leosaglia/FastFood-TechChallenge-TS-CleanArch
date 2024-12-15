@@ -13,6 +13,7 @@ const globalErrorHandler = (
     case 'InvalidCategoryError':
     case 'InvalidCustomerError':
     case 'InvalidDocumentError':
+    case 'InvalidOrderError':
       res.status(400).json({ statusCode: 400, message: err.message })
       break
     case 'ProductNotFoundError':
