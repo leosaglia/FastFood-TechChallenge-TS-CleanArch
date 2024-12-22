@@ -4,7 +4,7 @@
     "paths": {
       "@core/*": ["src/core/*"],
       "@infra/*": ["src/infraestructure/*"],
-      "@test/*": ["test/*"],
+      "@test/*": ["test/*"]
     },
     "types": [
       "vitest/globals"
@@ -24,6 +24,6 @@
     "noFallthroughCasesInSwitch": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   }
 }
