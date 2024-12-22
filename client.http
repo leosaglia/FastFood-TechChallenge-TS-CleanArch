@@ -68,14 +68,14 @@ POST {{baseUrl}}/orders
 Content-Type: application/json
 
 {
-  "customerId": "a7db0e72-0611-4c9e-88a6-edb977fada4f",
+  "customerDocument": "11144477735",
   "items": [
     {
-      "productId": "3c375341-8191-4f5f-8867-9e81224b372b",
+      "productId": "7505a45e-ceb1-4436-8943-ec48687acbde",
       "quantity": 2
     },
     {
-      "productId": "1a442d43-fad4-47ad-91ce-485346ad5a05",
+      "productId": "1",
       "quantity": 2
     }
   ]
