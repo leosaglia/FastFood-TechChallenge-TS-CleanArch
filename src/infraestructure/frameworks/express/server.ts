@@ -24,8 +24,8 @@ export class TechChallengeAPI {
     app.use(routes)
     app.use(globalErrorHandler)
 
-    app.listen(3333, () => {
-      console.log('Server started ⚡')
+    app.listen(process.env.PORT ?? 3001, () => {
+      console.log(`Server started on port ${process.env.PORT}⚡`)
     })
   }
 }

@@ -19,3 +19,13 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:${PGDATA}
+  backend:
+    build: .
+    container_name: fastfood-api
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
