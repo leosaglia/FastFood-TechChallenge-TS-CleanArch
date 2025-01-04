@@ -85,3 +85,8 @@ Content-Type: application/json
 
 # @name listar_pedidos
 GET {{baseUrl}}/orders
+
+###
+
+# @name pagar_pedido
+POST  {{baseUrl}}/orders/b5660410-30e7-44bc-9e5c-08746422c704/payments
