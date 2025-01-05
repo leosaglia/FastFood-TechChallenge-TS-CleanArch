@@ -29,6 +29,8 @@ RUN npm ci --omit=dev && npm cache clean --force
 ###################
 FROM node:18-alpine AS production
 
+ENV POSTGRES_URL="postgresql://default-connection"
+
 # Definir o diretório de trabalho dentro do contêiner
 WORKDIR /usr/src/app
 
@@ -36,7 +38,6 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
-COPY --from=build /usr/src/app/.env ./
 COPY --from=build /usr/src/app/tsconfig-paths-bootstrap.js ./
 COPY --from=build /usr/src/app/tsconfig.json ./
 COPY --from=build /usr/src/app/src/infraestructure/frameworks/prisma ./src/infraestructure/frameworks/prisma
