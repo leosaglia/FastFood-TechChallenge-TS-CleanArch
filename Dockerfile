@@ -30,6 +30,7 @@ RUN npm ci --omit=dev && npm cache clean --force
 FROM node:18-alpine AS production
 
 ENV POSTGRES_URL="postgresql://default-connection"
+ENV PORT=3001
 
 # Definir o diretório de trabalho dentro do contêiner
 WORKDIR /usr/src/app
