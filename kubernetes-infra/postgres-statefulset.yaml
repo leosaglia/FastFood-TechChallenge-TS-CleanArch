@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: tech-challenge-ts-clean-arch-postgres-deployment
+  name: tech-challenge-ts-clean-arch-postgres-statefulset
   labels:
-    app: tech-challenge-ts-clean-arch-postgres-deployment
+    app: tech-challenge-ts-clean-arch-postgres-statefulset
 spec:
+  serviceName: "postgres"
   replicas: 1
   selector:
     matchLabels:
@@ -29,16 +30,10 @@ spec:
                   name: postgres-secret
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
-              value: "techchallenge-fastfood"
-            - name: PGDATA
-              value: "/var/lib/postgresql/data"
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "1"
-            requests:
-              memory: "256Mi"
-              cpu: "500m"
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_DB
           ports:
             - containerPort: 5432
           volumeMounts:
