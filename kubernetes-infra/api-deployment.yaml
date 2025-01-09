@@ -13,6 +13,15 @@ spec:
       labels:
         app: tech-challenge-ts-clean-arch-api
     spec:
+      initContainers:
+        - name: wait-for-postgres
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              'until nc -z -v -w30 tech-challenge-ts-clean-arch-postgres 5432; do echo "Waiting for PostgreSQL..."; sleep 5; done;',
+            ]
       containers:
         - name: tech-challenge-ts-clean-arch-api
           image: leosaglia/tech-challenge-ts-clean-arch
