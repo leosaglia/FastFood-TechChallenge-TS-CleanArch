@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tech-challenge-ts-clean-arch-api-service
+spec:
+  type: NodePort
+  ports:
+    - port: 3001
+      targetPort: 3001
+      nodePort: 31300
+  selector:
+    app: tech-challenge-ts-clean-arch-api
