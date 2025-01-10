@@ -1,4 +1,6 @@
 import express from 'express'
+import swaggerUi from 'swagger-ui-express'
+import swaggerDocs from './docs/swagger.json'
 import routes from './routes'
 import { IProductDataSource } from '@core/application/interfaces/repository/product-data-source'
 import { ICustomerDataSource } from '@core/application/interfaces/repository/customer-data-source'
@@ -13,6 +15,8 @@ export class TechChallengeAPI {
   ) {
     const app = express()
     app.use(express.json())
+
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
     app.use((req, res, next) => {
       req.app.locals.productDataSource = productDataSource
