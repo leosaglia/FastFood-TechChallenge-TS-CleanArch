@@ -90,3 +90,45 @@ Este comando irá retornar uma url localhost com uma porta aleatória de onde se
 `http://127.0.0.1:52358/`
 
 Para acessar o swagger: `http://127.0.0.1:52358/api-docs`
+
+## 📖 Documentação
+
+### 🔆 Swagger
+`http://http://localhost:3001/api-docs/`
+
+Também podem ser feitas execuções através do arquivo `client.http` caso tenha a extensão **Rest Client** instalada no VS Code. Nele já contém algumas massas para execução.
+
+### 🔆 Negócio
+
+Pode ser feito cadastros de clientes, caso o cliente desejar, mas não é algo obrigatório. `[POST] /customers`.
+
+Caso o cliente tenha optado pelo cadastro é possível se identificar através do CPF. `[GET] /customers/{cpf}`.
+
+Para ser possível realizar um pedido, é necessário que existam produtos cadastrados para o cliente escolher. Para isso, estão dispostas as seguintes funcionalidades para os produtos:
+- Criação do produto `[POST] /products`
+- Edição do produto `[PUT] /products/{productId}`
+- Listagem dos produtos `[GET] /products`. Podendo filtrá-los também por categoria `[GET] /products?category={category}`
+- Deleção de produtos `[DELETE] /products/{productId}`
+
+Com os produtos existindo, já é possível fazer um pedido `[POST] /orders` e realizar o pagamento do mesmo `[POST] /orders/{orderId}/payments`
+
+Também é possível fazer um acompanhamento dos pedidos, se já estão em preparação, prontos e etc. `[GET] /orders`
+
+### 🔆 Arquitetura
+![Arquitetura Kubernetes](kubernetes-infra/arquitetura.png)
+
+#### Requisitos
+- **Escalabilidade Automática:**
+  O sistema deve utilizar o Horizontal Pod Autoscaler (HPA) para garantir que a API possa escalar automaticamente com base na utilização de CPU. Isso ajudará a manter a performance durante picos de demanda.
+
+- **Persistência de Dados:**
+  O banco de dados PostgreSQL deve ser configurado com Persistent Volumes (PV) e Persistent Volume Claims (PVC) para garantir a persistência dos dados, mesmo em caso de falhas ou reinicio nos pods.
+
+- **Segurança:**
+  As credenciais de acesso ao banco de dados e outras informações sensíveis devem ser armazenadas em Secrets do Kubernetes para garantir a segurança.
+
+- **Monitoramento e Saúde:**
+  Deve ser configurado um readinessProbe e um livenessProbe para a API, garantindo que o Kubernetes possa monitorar a saúde dos pods e reiniciá-los se necessário.
+
+- **Serviços de Rede:**
+  Deve ser configurado um Service para expor a API e o banco de dados PostgreSQL, permitindo que os componentes do sistema se comuniquem entre si.
