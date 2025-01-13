@@ -12,5 +12,5 @@ spec:
   storageClassName: local-storage
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /Users/Public/kubernetes/postgres
+    path: data/pv/postgres
   
