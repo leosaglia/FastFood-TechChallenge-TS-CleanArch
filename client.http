@@ -5,10 +5,10 @@ POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-  "name": "Batata frita",
-  "description": "Batata frita simples com sal",
-  "category": "Acompanhamento",
-  "price": 5.99
+  "name": "Cheeseburguer",
+  "description": "Pão, carne e queijo",
+  "category": "Lanche",
+  "price": 7.00
 }
 
 ###
@@ -68,15 +68,10 @@ POST {{baseUrl}}/orders
 Content-Type: application/json
 
 {
-  "customerDocument": "11144477735",
   "items": [
     {
-      "productId": "7505a45e-ceb1-4436-8943-ec48687acbde",
-      "quantity": 2
-    },
-    {
-      "productId": "1",
-      "quantity": 2
+      "productId": "b312e3b0-da23-4312-89dc-386defed43bf",
+      "quantity": 1
     }
   ]
 }
@@ -89,4 +84,4 @@ GET {{baseUrl}}/orders
 ###
 
 # @name pagar_pedido
-POST  {{baseUrl}}/orders/b5660410-30e7-44bc-9e5c-08746422c704/payments
+POST  {{baseUrl}}/orders/c2f33828-e154-4838-93a2-0c9e883019a1/payments
