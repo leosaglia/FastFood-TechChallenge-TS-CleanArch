@@ -8,6 +8,9 @@ Esta aplicação é um desafio técnico para um sistema de gerenciamento de fast
 
 Possui configuração para gerar imagem Docker e criação de recursos kubernetes para consumo.
 
+## 🔗 Link vídeo apresentação
+https://youtu.be/mvjAK6U2kzg
+
 ## 📌 Pré-requisitos
 
 Antes de começar, certifique-se de ter os seguintes recursos instalados em sua máquina.

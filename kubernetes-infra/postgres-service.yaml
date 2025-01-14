@@ -4,6 +4,7 @@ metadata:
   name: tech-challenge-ts-clean-arch-postgres
 spec:
   type: ClusterIP
+  clusterIP: None
   selector:
     app: tech-challenge-ts-clean-arch-postgres
   ports:
